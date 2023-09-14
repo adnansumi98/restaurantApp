@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   min-height: 75vh;
-  margin-top: 85px;
+  padding-top: 85px;
 }
 
 @media screen and (min-width: 768px) {

@@ -11,8 +11,6 @@ const Login = props => {
   const [errorMsg, setErrorMsg] = useState('')
   const [showPassword, setShowPassword] = useState(false)
   const [displayError, setDisplayError] = useState(false)
-  const [unph, setUnph] = useState('Enter Username')
-  const [pwdph, setPwdPh] = useState('Enter Password')
 
   const onChangeUsername = event => {
     setUserName(event.target.value)
@@ -73,13 +71,7 @@ const Login = props => {
           className="pwd-input-field"
           value={password}
           onChange={onChangePassword}
-          onFocus={() => {
-            setPwdPh('rahul@2021')
-          }}
-          onBlur={() => {
-            setPwdPh('Enter Password')
-          }}
-          placeholder={pwdph}
+          placeholder="Enter Password"
         />
         <button
           type="button"
@@ -106,13 +98,7 @@ const Login = props => {
         className="input-field"
         value={userName}
         onChange={onChangeUsername}
-        onFocus={() => {
-          setUnph('rahul')
-        }}
-        onBlur={() => {
-          setUnph('Enter Username')
-        }}
-        placeholder={unph}
+        placeholder="Enter Username"
       />
     </>
   )

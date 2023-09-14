@@ -6,7 +6,7 @@ const CartSummary = () => {
   const {cartList} = useContext(CartContext)
   let total = 0
   cartList.forEach(eachCartItem => {
-    total += eachCartItem.dishPrice * eachCartItem.quantity
+    total += eachCartItem.dish_price * eachCartItem.quantity
   })
 
   return (
@@ -14,7 +14,7 @@ const CartSummary = () => {
       <div className="cart-summary-container">
         <h1 className="order-total-value">
           <span className="order-total-label">Order Total:</span>
-          {cartList[0]?.dishCurrency} {total}
+          {cartList[0]?.dish_currency} {total}
           /-
         </h1>
         <p className="total-items">{cartList.length} Items in cart</p>

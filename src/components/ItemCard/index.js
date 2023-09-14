@@ -4,9 +4,7 @@ import CartContext from '../../utils/CartContext'
 import './index.css'
 
 function ItemCard(props) {
-  const {incrementCartItemQuantity, decrementCartItemQuantity} = useContext(
-    CartContext,
-  )
+  const {addCartItem} = useContext(CartContext)
   const {itemData} = props
   const {
     dish_Type,
@@ -22,15 +20,19 @@ function ItemCard(props) {
 
   const [quantity, setQuantity] = useState(0)
 
-  const onIncrementQuantity = () => {
-    setQuantity(prev => prev + 1)
-    incrementCartItemQuantity()
+  const onDecrementQuantity = () => {
+    if (quantity > 1) {
+      setQuantity(quantity - 1)
+    }
   }
 
-  const onDecrementQuantity = () => {
+  const onIncrementQuantity = () => {
+    setQuantity(quantity + 1)
+  }
+
+  const onClickAddToCart = () => {
     if (quantity > 0) {
-      setQuantity(prev => prev - 1)
-      decrementCartItemQuantity()
+      addCartItem({...itemData, quantity})
     }
   }
 
@@ -47,21 +49,30 @@ function ItemCard(props) {
           <p className="dish-price">{`${dish_currency} ${dish_price}`}</p>
           <p className="dish-desc">{dish_description}</p>
           {dish_Availability ? (
-            <div className="ic-btn-con">
+            <div className="btn-con1">
+              <div className="ic-btn-con">
+                <button
+                  className="in-de-btn"
+                  type="button"
+                  onClick={onDecrementQuantity}
+                >
+                  -
+                </button>
+                <p className="qty">{quantity}</p>
+                <button
+                  className="in-de-btn"
+                  type="button"
+                  onClick={onIncrementQuantity}
+                >
+                  +
+                </button>
+              </div>
               <button
-                className="in-de-btn"
                 type="button"
-                onClick={onDecrementQuantity}
+                className="button add-to-cart-btn"
+                onClick={onClickAddToCart}
               >
-                -
-              </button>
-              <p className="qty">{quantity}</p>
-              <button
-                className="in-de-btn"
-                type="button"
-                onClick={onIncrementQuantity}
-              >
-                +
+                ADD TO CART
               </button>
             </div>
           ) : (

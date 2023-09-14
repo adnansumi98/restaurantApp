@@ -1,5 +1,5 @@
 import {useState, useEffect, useContext} from 'react'
-import CartContext from '../../utils/CartContext'
+import NameContext from '../../utils/NameContext'
 import {apiStatusConstants, apiUrl} from '../../utils/constants'
 import Header from '../Header'
 import TabItem from '../TabItem'
@@ -10,11 +10,13 @@ import './index.css'
 
 function Home() {
   const [activeTabId, setActiveTabId] = useState(null)
-  const {updateRestaurantName} = useContext(CartContext)
+  const {updateRestaurantName} = useContext(NameContext)
   const [apiResponse, setApiResponse] = useState({
     apiStatus: apiStatusConstants.initial,
     apiData: [],
   })
+
+  //    const [res, setRes] = useState('')
 
   const getMenuDetails = async () => {
     setApiResponse(prev => ({
@@ -30,6 +32,7 @@ function Home() {
         apiData: data,
       }))
       updateRestaurantName(data[0]?.restaurant_name)
+      //    setRes(data[0]?.restaurant_name)
       setActiveTabId(data[0]?.table_menu_list[0]?.menu_category_id)
     } else {
       setApiResponse(prev => ({...prev, apiStatus: apiStatusConstants.failure}))
