@@ -1,4 +1,5 @@
 import {Link} from 'react-router-dom'
+import {notFoundImgUrl} from '../../utils/constants'
 import './index.css'
 
 function NotFound() {
@@ -7,11 +8,7 @@ function NotFound() {
       <Link to="/" className="link-home">
         Go Home
       </Link>
-      <img
-        src="https://assets.ccbp.in/frontend/react-js/not-found-blog-img.png"
-        alt="not found"
-        className="not-found-img"
-      />
+      <img src={notFoundImgUrl} alt="not found" className="not-found-img" />
     </div>
   )
 }
