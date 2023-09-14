@@ -1,0 +1,24 @@
+.not-found-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
+  font-family: 'Roboto';
+}
+
+.not-found-img {
+  width: 400px;
+  margin-top: 50px;
+}
+.err-msg {
+  font-size: 25px;
+  font-weight: 600;
+  color: lightcoral;
+}
+.link-home {
+  color: greenyellow;
+  font-size: 30px;
+  font-weight: bolder;
+  margin-top: 100px;
+}
