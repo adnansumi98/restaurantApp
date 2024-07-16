@@ -6,7 +6,7 @@ export const apiStatusConstants = {
 }
 
 export const apiUrl =
-  'https://run.mocky.io/v3/a67edc87-49c7-4822-9cb4-e2ef94cb3099'
+  'https://apis2.ccbp.in/restaurant-app/restaurant-menu-list-details'
 
 export const loginUrl = 'https://apis.ccbp.in/login'
 
