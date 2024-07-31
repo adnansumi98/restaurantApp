@@ -33,9 +33,7 @@ const CartItem = props => {
           <button
             type="button"
             className="quantity-controller-button"
-            onClick={() => {
-              decrementCartItemQuantity(dish_id)
-            }}
+            onClick={() => decrementCartItemQuantity(dish_id)}
           >
             -
           </button>
@@ -43,9 +41,7 @@ const CartItem = props => {
           <button
             type="button"
             className="quantity-controller-button"
-            onClick={() => {
-              incrementCartItemQuantity(dish_id)
-            }}
+            onClick={() => incrementCartItemQuantity(dish_id)}
           >
             +
           </button>

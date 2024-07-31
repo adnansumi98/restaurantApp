@@ -20,19 +20,36 @@ function ItemCard(props) {
 
   const [quantity, setQuantity] = useState(0)
 
-  const onDecrementQuantity = () => {
-    if (quantity > 1) {
-      setQuantity(quantity - 1)
-    }
-  }
+  // const onDecrementQuantity = () => {
+  //   if (quantity > 1) {
+  //     setQuantity(quantity - 1)
+  //   }
+  // }
 
-  const onIncrementQuantity = () => {
-    setQuantity(quantity + 1)
-  }
+  // const onIncrementQuantity = () => {
+  //   setQuantity(quantity + 1)
+  // }
 
   const onClickAddToCart = () => {
     if (quantity > 0) {
       addCartItem({...itemData, quantity})
+    }
+  }
+
+  const onClickQuantityChange = action => {
+    const newQuantity = action === 'increase' ? quantity + 1 : quantity - 1
+    if (newQuantity <= 0) {
+      setQuantity(0)
+    } else {
+      setQuantity(newQuantity)
+    }
+
+    if (quantity === 0 && action !== 'decrease') {
+      addCartItem({...itemData, quantity: 1})
+    } else if (quantity === 0 && action === 'decrease') {
+      console.log('cannot be less than zero')
+    } else {
+      addCartItem({...itemData, quantity: newQuantity})
     }
   }
 
@@ -54,7 +71,7 @@ function ItemCard(props) {
                 <button
                   className="in-de-btn"
                   type="button"
-                  onClick={onDecrementQuantity}
+                  onClick={() => onClickQuantityChange('decrease')}
                 >
                   -
                 </button>
@@ -62,18 +79,22 @@ function ItemCard(props) {
                 <button
                   className="in-de-btn"
                   type="button"
-                  onClick={onIncrementQuantity}
+                  onClick={() => onClickQuantityChange('increase')}
                 >
                   +
                 </button>
               </div>
-              <button
-                type="button"
-                className="button add-to-cart-btn"
-                onClick={onClickAddToCart}
-              >
-                ADD TO CART
-              </button>
+              {quantity > 0 ? (
+                <button
+                  type="button"
+                  className="button add-to-cart-btn"
+                  onClick={onClickAddToCart}
+                >
+                  ADD TO CART
+                </button>
+              ) : (
+                ''
+              )}
             </div>
           ) : (
             <p className="dna">Not available</p>
