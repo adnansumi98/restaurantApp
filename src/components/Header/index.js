@@ -25,9 +25,21 @@ const Header = props => {
       <div className="he-con1">
         <p className="he-para">My Orders</p>
         <Link to="/cart">
-          <AiOutlineShoppingCart className="cart-icon" />
+          <div
+            style={{
+              backgroundColor: 'transparent',
+              border: 'transparent',
+              display: 'flex',
+            }}
+          >
+            <button type="submit" data-testid="cart">
+              <AiOutlineShoppingCart className="cart-icon" />
+            </button>
+            <p className="c-badge" type="button">
+              {cartList.length}
+            </p>
+          </div>
         </Link>
-        <p className="c-badge">{cartList.length} </p>
         <button className="lo-btn" type="button" onClick={onClickLogout}>
           Logout
         </button>

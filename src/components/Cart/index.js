@@ -15,9 +15,12 @@ const Cart = () => {
       <div className="cart-container">
         {cartList.length > 0 ? (
           <div className="cart-content-container">
-            <h1 className="cart-heading">My Cart</h1>
+            <h1 className="cart-heading" data-testid="cart">
+              My Cart
+            </h1>
             <button
               className="remove-all-btn "
+              data-testid="cart"
               type="button"
               onClick={() => {
                 removeAllCartItems()
@@ -29,7 +32,7 @@ const Cart = () => {
             <CartSummary />
           </div>
         ) : (
-          <EmptyCartView />
+          <EmptyCartView data-testid="cart" />
         )}
       </div>
     </>

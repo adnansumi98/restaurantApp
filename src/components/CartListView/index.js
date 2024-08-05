@@ -8,7 +8,11 @@ const CartListView = () => {
   return (
     <ul className="cart-list">
       {cartList.map(eachCartItem => (
-        <CartItem key={eachCartItem.dishId} cartItemDetails={eachCartItem} />
+        <CartItem
+          key={eachCartItem.dishId}
+          cartItemDetails={eachCartItem}
+          data-testid="cart"
+        />
       ))}
     </ul>
   )
