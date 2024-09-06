@@ -33,9 +33,9 @@ const Header = props => {
             }}
           >
             <button type="submit" data-testid="cart">
-              <AiOutlineShoppingCart className="cart-icon" />
+              <AiOutlineShoppingCart className="cart-icon" data-testid="cart" />
             </button>
-            <p className="c-badge" type="button">
+            <p className="c-badge" data-testid="cart">
               {cartList.length}
             </p>
           </div>

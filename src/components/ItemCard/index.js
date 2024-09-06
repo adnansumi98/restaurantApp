@@ -44,13 +44,13 @@ function ItemCard(props) {
       setQuantity(newQuantity)
     }
 
-    if (quantity === 0 && action !== 'decrease') {
-      addCartItem({...itemData, quantity: 1})
-    } else if (quantity === 0 && action === 'decrease') {
-      console.log('cannot be less than zero')
-    } else {
-      addCartItem({...itemData, quantity: newQuantity})
-    }
+    // if (quantity === 0 && action !== 'decrease') {
+    //   addCartItem({...itemData, quantity: 1})
+    // } else if (quantity === 0 && action === 'decrease') {
+    //   console.log('cannot be less than zero')
+    // } else {
+    //   addCartItem({...itemData, quantity: newQuantity})
+    // }
   }
 
   return (
